@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/semantic.min.css" rel="stylesheet">
+        <link href="/css/main.css" rel="stylesheet">
+        <title>Weather</title>
+    </head>
+    <body>
+        {{>header}}
+        <div class="ui huge header center aligned">{{title}}</div>
+        <div id="loc" class='ui medium header center aligned'>
+            <div class="ui large active centered inline loader"></div>
+        </div>
+
+        <script>           
+            const locHandler = document.querySelector('#loc')           
+            function onSuccess (pos) {
+                let position = pos.coords 
+                let {latitude, longitude} = position
+                locHandler.textContent = `Latitude: ${latitude}, Longitude: ${longitude}.`
+            }
+
+            function onError() {
+                locHandler.textContent = 'Failed to get your location.'
+            }
+
+            function query () {
+                if (!navigator.geolocation) {
+                    onError()
+                } else {
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError)
+                }    
+            }
+            query()
+        </script>    
+    </body>
+</html>

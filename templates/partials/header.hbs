@@ -1,0 +1,27 @@
+<div class="ui inverted segment">
+  <div id="header-list" class="inverted ui secondary pointing menu">
+    <a id="home" class="item" href="/">
+      Home
+    </a>
+    <a id="weather" class="item" href="weather">
+      Historical Data
+    </a>
+    <a id="about" class="item" href="about">
+      About
+    </a>
+  </div>
+</div>
+<script>
+    // Set the active item in the navbar depending on the current URL.
+    let currentLocation = location.href
+    let items = document.querySelectorAll('#header-list > a')
+     
+    items.forEach(item => {
+        if (item.href === currentLocation) {
+            item.className="active item"
+        } else {
+            item.className="item"
+        }
+    })
+
+</script>
