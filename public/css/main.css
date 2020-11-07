@@ -1,0 +1,7 @@
+table > thead > tr:nth-child(odd) {
+    background-color: lightyellow !important;
+}
+
+table > thead > tr:nth-child(even) {
+    background-color: linen !important;
+}

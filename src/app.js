@@ -8,6 +8,7 @@ const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 const publicPath = path.join(__dirname, '../public')
 
+
 // Configuration
 const app = express()
 app.use(express.static(publicPath))
@@ -30,7 +31,7 @@ app.get('/about', (req, res) => {
 
 app.get('/weather', (req, res) => {
     res.render('weather', {
-        title: 'Historical Data'
+      title: 'Weather Data'
     })
 })
 
