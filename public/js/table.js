@@ -173,8 +173,8 @@ const generateTableHead = (table, headings, data) => {
     })
 }
 
-const generateTable = (table, data) => {    
-    for (day of data) {
+const generateTable = (table, data) => { 
+    data.forEach(day => {
         let row = table.insertRow()
         for (key in day) {
             let cell = row.insertCell()
@@ -182,10 +182,12 @@ const generateTable = (table, data) => {
             let text = document.createTextNode(sanitizedText)
             cell.appendChild(text)
         }
-    }
+    })
 }
+
 
 const weatherTable = document.querySelector('#data-table')
 
 generateTableHead(weatherTable, headings)
 generateTable(weatherTable, weatherData)
+
